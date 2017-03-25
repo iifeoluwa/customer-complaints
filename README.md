@@ -1,3 +1,3 @@
 # Customer Complaints
 
-Detect, Validate and Respond to customer complaints made via Twitter
+A NodeJS application to detect, validate and respond to customer complaints made via Twitter.
