@@ -1,0 +1,7 @@
+{
+       "consumerKey": "JFIIqp4iWRViAonopq4Syq9L0",
+       "consumerSecret": "tNJ0Ln8LQLA63C0hSpbArUyyXW0RMY5ppqBuPoZ7mBIgqxpORb",
+       "accessToken": "845653889810661376-ppN8YdqJpDbKli6DxT4m8JVwQoCuC72",
+       "accessTokenSecret": "nLBvHDurH98kP2aNloptMpq4y8FYKCj0hJDHnW1nATtYN",
+       "callBackUrl": "https://customer-complaint.herokuapp.com/oauth/twitter"
+}
