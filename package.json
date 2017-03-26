@@ -11,9 +11,10 @@
     "debug": "~2.6.0",
     "ejs": "~2.5.5",
     "express": "~4.14.1",
+    "mongoskin": "^2.1.0",
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.2",
-    "watson-developer-cloud": "^2.27.1",
-    "twitter-node-client": "0.0.6"
+    "twitter-node-client": "0.0.6",
+    "watson-developer-cloud": "^2.27.1"
   }
 }
