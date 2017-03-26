@@ -9,6 +9,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var oauth = require('./routes/oauth');
 var search = require('./routes/search');
+var api = require('./routes/v1/index');
 
 var app = express();
 
@@ -28,6 +29,8 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/oauth', oauth);
 app.use('/search', search);
+app.use('/v1/', api);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
