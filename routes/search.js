@@ -51,11 +51,17 @@ var handleSearchRequestFn = function (req, res, next) {
 
     var successHandler = function (response) {
         var tweets = JSON.parse(response).statuses;
-        if (!String.isNullOrEmpty(req.query.handle)) tweets = tweets.filter(tweet => ((tweet.user || {}).user.screen_name || '').toLowerCase() != req.query.handle.toLowerCase().replace(/\@/g, ''));
+        if (!String.isNullOrEmpty(req.query.handle)) tweets = tweets.filter(tweet => ((tweet.user || {}).screen_name || '').toLowerCase() != req.query.handle.toLowerCase().replace(/\@/g, ''));
         Promise.all(tweets.map(tweet => getToneInfo(tweet.text))).then(function (responses) {
             return res.render('search', {
                 title: 'Search Results', results: JSON.stringify(responses.map((tone, i) => {
                     var tweetTone = { tweet: tweets[i], tone: tone }
+                    var userMentionLength = ((tweetTone.tweet || {}).entities || {}).user_mentions.length;
+                        var toneCategories = ((((((tweetTone.tone || {}) || {}) || {}).tone || {}).document_tone || {}).tone_categories || []);
+                        toneCategories.forEach(cat => (cat.tones || []).forEach(t => {
+                            if (userMentionLength > 1) t.resolvedScore = t.score / userMentionLength;
+                            else t.resolvedScore = t.score;
+                        }));
                     return tweetTone;
                 }))
             });
